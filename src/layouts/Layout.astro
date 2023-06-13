@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Mapa from '../components/Mapa.astro';
 import Footer from '../components/Footer.astro';
 import Whats from '../components/Whats.astro';
 import Banner from '../components/Banner.astro';
@@ -28,6 +29,7 @@ const { title } = Astro.props;
 		<Header />
 		<Banner />
 		<slot />
+		<Mapa />
 		<Footer />
 	</body>
 </html>
