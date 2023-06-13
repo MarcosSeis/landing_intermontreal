@@ -1,0 +1,315 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Btn from '../components/Btn.astro'
+import { Icon } from 'astro-icon'
+---
+
+<Layout title="InterMontreal - Escuela de manejo">
+	<main>
+		<div class="titulo_encabezado">
+			<h1>MANEJA DESDE LA PRIMERA CLASE</h1>
+		</div>
+		<div class="titulo_contenido">
+			<div>
+				<img src="/portada.webp" alt="Escuela de manejo intermontreal">
+			</div>
+			<div>
+				<p>
+					Escuela de manejo inter Montreal somos una escuela de manejo especializada en cursos para personas nerviosas y menores de edad tenemos más de 20 años en el mercado estamos trabajando desde el 2002:
+				</p>
+				<ul>
+					<li><Icon name="el:check"/><span>Instructores profesionales con certificación en CDMX. </span></li>
+					<li><Icon name="el:check"/><span>Vehículos asegurados con doble sistema de freno.</span></li>
+					<li><Icon name="el:check"/><span>Expertos en trato de personas nerviosas.</span></li>
+				</ul>
+				<a href="https://wa.link/b4ja7p" class="btn">
+					<button>¡QUIERO APRENDER A MANEJAR!</button>
+				</a>
+			</div>
+		</div>
+	</main>
+
+	<section class="clases">
+		<div class="clases_titulo">
+			<Icon name="ant-design:car-outlined"/>
+			<h1>¡CONOCE NUESTROS <span>CURSOS!</span></h1>
+			<Icon name="ant-design:car-outlined"/>
+		</div>
+		<h2>
+			Conoce más acerca de los cursos para aprender a manejar que tenemos, tú decides cuál es el curso de manejo ideal para ti:
+		</h2>
+
+		<div class="clases_contenido">
+			<div class="clases_contenido_clase">
+				<Icon name="openmoji:police-car-light"/>
+				<p>CURSO CORTO 5 HORAS</p><p>(1 HORA DIARIA X 5 DÍAS)</p>
+				<Btn href="https://wa.link/b4ja7p"/>
+			</div>
+			<div class="clases_contenido_clase">
+				<Icon name="openmoji:police-car-light"/>
+				<p>CURSO LARGO 7 HORAS</p><p>(1:30 HORAS X 4 DÍAS, 5TO DÍA 1HORA)</p>
+				<Btn href="https://wa.link/b4ja7p" />
+			</div>
+			<div class="clases_contenido_clase">
+				<Icon name="openmoji:police-car-light"/>
+				<p>CURSO PRINCIPIANTE 10 HORAS</p><p>(12 HORAS DIARIA X 5 DÍAS)</p>
+				<Btn href="https://wa.link/b4ja7p"/>
+			</div>
+			<div class="clases_contenido_clase">
+				<Icon name="openmoji:police-car-light"/>
+				<p>CURSO INTENSIVO 5 HORAS</p><p>(2:30 HORAS X 2 DÍAS)</p>
+				<Btn href="https://wa.link/b4ja7p"/>
+			</div>
+			<div class="clases_contenido_clase">
+				<Icon name="openmoji:police-car-light"/>
+				<p>CURSO COMPLETO 16 HORAS</p><p>(2 HORAS DIARIAS X 8 DÍAS)</p>
+				<Btn href="https://wa.link/b4ja7p"/>
+			</div>
+			<div class="clases_contenido_clase">
+				<Icon name="openmoji:police-car-light"/>
+				<p>MANUAL DE MANEJO DEFENSIVO AUTORIZADO POR SEMOVI</p>
+				<Btn href="https://wa.link/b4ja7p"/>
+			</div>
+		</div>
+	</section>
+
+	<section class="temario">
+		<div class="temario_titulo">
+			<Icon name="emojione-v1:books"/>
+			<h1>TEMARIO</h1>
+			<Icon name="emojione-v1:books"/>
+		</div>
+		<h2>
+			Conoce nuestro temario y todo lo que aprenderas con nosotros.
+		</h2>
+		<div class="temario_contenido">
+			<ul class="temario_contenido_lista">
+				<li>Uso de Clutch</li>
+				<li>Avances del Auto en 3 modalidades</li>
+				<li>Cambio de velocidades</li>
+				<li>Uso de espejos</li>
+				<li>Reversa y estacionamiento entre dos autos</li>
+				<li>Curvas (vueltas cerradas)</li>
+				<li>Calles angostas y amplias</li>
+				<li>Avenidas a baja y alta velocidad</li>
+				<li>Avances del auto en pendientes</li>
+				<li>Pendientes (subidas y bajadas)</li>
+				<li>Puentes</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="clases">
+		<div class="clases_titulo">
+			<Icon name="ant-design:car-outlined"/>
+			<h1>¡NUESTROS <span>CLIENTES!</span></h1>
+			<Icon name="ant-design:car-outlined"/>
+		</div>
+		<div class="galeria">
+			<img src="/1.jpeg" alt="Clases de manejo buenas">
+			<img src="/2.jpeg" alt="Clases de manejo buenas">
+			<img src="/3.jpeg" alt="Clases de manejo buenas">
+			<img src="/4.jpeg" alt="Clases de manejo buenas">
+			<img src="/5.jpeg" alt="Clases de manejo buenas">
+			<img src="/6.jpeg" alt="Clases de manejo buenas">
+			<img src="/8.jpeg" alt="Clases de manejo buenas">
+			<img src="/9.jpeg" alt="Clases de manejo buenas">
+		</div>
+	</section>	
+
+</Layout>
+
+<style>
+	main {
+		padding: 1.5rem;
+		max-width: 80%;
+		margin: 0 auto;
+		background-color: #fff;
+	}
+	h1 {
+		color: var(--color-primario);
+		font-size: 2rem;
+		font-weight: 800;
+		margin: 0;
+		text-align: center;
+	}
+	h2 {
+		color: var(--color-primario);
+		font-size: 1.5rem;
+		font-weight: 800;
+		margin: 0;
+		text-align: center;
+		max-width: 55%;
+		margin: 0 auto;
+		margin-top: 1rem;
+	}
+
+
+	.titulo_contenido {
+		display: grid;
+		padding: 4rem 0;
+		gap: 2rem;
+		grid-template-columns: 1fr 1fr; 
+	}
+
+	.titulo_contenido img{
+		max-width: 100%;
+  		height: auto;
+		border-radius: 0.5rem ;
+	}
+
+	.titulo_contenido [astro-icon] {
+        max-height: 16px;
+		color: greenyellow;
+    }
+
+	.titulo_contenido ul{
+		list-style: none;
+	}
+
+	.titulo_contenido ul span{
+		margin-left: 10px;
+	}
+
+	.titulo_contenido button {
+		box-shadow: 4px 4px 9px 0px #000000;
+		background-color: var(--amarillo);
+		border-radius:28px;
+		border:1px solid #000a01;
+		display:inline-block;
+		cursor:pointer;
+		color:#000000;
+		font-size:17px;
+		padding:16px 31px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #000000;
+	}
+
+	.titulo_contenido button:hover{
+		background-color:#f0ba18;
+	}
+
+	@media (max-width: 767px){
+		.titulo_contenido{
+			display: block;
+		}
+	}
+
+	.clases {
+		background-color: #eaeaeb;
+		padding: 2rem 0;
+	}
+
+	.clases_titulo {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		background-color: var(--amarillo);
+		max-width: 80%;
+		margin: 0 auto;
+		border-radius: 10%;
+	}
+
+	.clases_titulo [astro-icon] {
+		max-width: 64px;
+	}
+
+	.clases_titulo span {
+		color: #000000;
+	}
+
+	@media (max-width: 767px){
+		h2 {
+			max-width: 80%;
+			font-size: 1rem;
+		}
+	}
+
+	.clases_contenido{
+		margin-top: 2rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-items: center;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.clases_contenido_clase {
+		font-size: 1rem;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.clases_contenido_clase p:first-child{
+		font-size: 1rem;
+	}
+
+	.clases_contenido_clase p:nth-child(3){
+		margin-top: -1rem;
+		font-size: .8rem;
+		font-weight: 400;
+	}
+
+	.clases_contenido_clase [astro-icon] {
+		max-width: 3rem;
+	}
+
+	@media (max-width: 767px){
+		.clases_contenido{
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.temario {
+		margin-top: 2rem;
+		padding: 2rem 0;
+		background-color: #fff;
+	}
+
+	.temario_titulo {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.temario_titulo [astro-icon] {
+		max-width: 3rem;
+	}
+
+	.temario_contenido_lista{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+		text-align: center;
+		list-style: none;
+	}
+
+	@media (max-width: 767px){
+		.temario_contenido_lista{
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.galeria{
+		max-width: 80%;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		text-align: center;
+		padding: 3rem 0;
+		gap: 1rem;
+	}
+
+	.galeria img {
+		max-width: 100%;
+  		height: auto;
+		border-radius: 0.5rem ;
+	}
+	@media (max-width: 767px){
+		.galeria{
+			grid-template-columns: 1fr 1fr;
+		}
+		
+	}
+	
+</style>

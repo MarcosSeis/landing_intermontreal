@@ -1,0 +1,43 @@
+---
+import { Icon } from 'astro-icon'
+---
+
+<div class="banner">
+    <div class="container">
+        <Icon name="noto:vertical-traffic-light"/>
+        <p>APRENDE A MANEJAR ÁGIL, SEGURO Y CONFIABLE</p>
+        <Icon name="noto:vertical-traffic-light"/>
+    </div>
+</div>
+
+<style>
+ 
+ .banner {
+    background-color: var(--amarillo);
+   
+ }
+
+ .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.25rem;
+ }
+
+ [astro-icon] {
+        max-height: 32px;
+}
+
+@media (max-width: 767px){
+    .container{
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    .container p {
+        text-align: center;
+    }
+}
+
+</style>
