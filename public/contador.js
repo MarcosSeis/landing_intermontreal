@@ -2,7 +2,7 @@ const COUNT_URL = "https://api.countapi.xyz";
 const NAMESPACE = "https://intermontrealdemanejo.com/";
 const KEY = "2985cc94-0a55-11ee-be56-0242ac120002";
 
-const counter = Array.from(document.querySelectorAll("span"));
+const counter = document.querySelectorAll(".counter span");
 
 const getCount = async () => {
   const response = await fetch(`${COUNT_URL}/get/${NAMESPACE}/${KEY}`);
