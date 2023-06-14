@@ -1,36 +1,64 @@
-const COUNT_URL = "https://api.countapi.xyz";
-const NAMESPACE = "https://intermontrealdemanejo.com/";
-const KEY = "3702d928-0abb-11ee-be56-0242ac120002";
-
-const counter = document.querySelectorAll('span');
-
-const getCount = () => {
-  const script = document.createElement('script');
-  script.src = `${COUNT_URL}/get/${NAMESPACE}/${KEY}?callback=handleResponse`;
-  document.body.appendChild(script);
-};
-
-const incrementCount = () => {
-  const script = document.createElement('script');
-  script.src = `${COUNT_URL}/hit/${NAMESPACE}/${KEY}?callback=handleResponse`;
-  document.body.appendChild(script);
-};
-
-const handleResponse = (data) => {
-  setValue(data.value);
-};
-
-const setValue = (num) => {
-  var str = num.toString().padStart(6, "0");
-  for (let index = 0; index < str.length; index++) {
-    const element = str[index];
-    counter[index].innerHTML = element;
+function getCookie(nombre) {
+    const name = `${nombre}=`;
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookies = decodedCookie.split(";");
+  
+    for (let i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i];
+      while (cookie.charAt(0) === " ") {
+        cookie = cookie.substring(1);
+      }
+      if (cookie.indexOf(name) === 0) {
+        return cookie.substring(name.length, cookie.length);
+      }
+    }
+    return "";
   }
-};
-
-if (localStorage.getItem("hasVisited") == null) {
-  incrementCount();
-  localStorage.setItem("hasVisited", "true");
-} else {
-  getCount();
-}
+  
+  function setCookie(nombre, valor, dias) {
+    const d = new Date();
+    d.setTime(d.getTime() + dias * 24 * 60 * 60 * 1000);
+    const expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${nombre}=${valor}; ${expires}; path=/`;
+  }
+  
+  function incrementarContador() {
+    const contadorElement = document.querySelector(".counter");
+    const spans = contadorElement.querySelectorAll("span");
+  
+    let contador = parseInt(spans[5].innerText + spans[4].innerText + spans[3].innerText + spans[2].innerText + spans[1].innerText + spans[0].innerText);
+  
+    if (isNaN(contador)) {
+      contador = 0;
+    }
+  
+    contador++;
+  
+    const contadorString = contador.toString().padStart(6, "0");
+    for (let i = 0; i < contadorString.length; i++) {
+      spans[i].innerText = contadorString[i];
+    }
+  
+    setCookie("contadorVisitas", contador, 365);
+  }
+  
+  window.addEventListener("DOMContentLoaded", () => {
+    const contadorElement = document.querySelector(".counter");
+    const spans = contadorElement.querySelectorAll("span");
+  
+    const contadorVisitas = parseInt(getCookie("contadorVisitas"));
+  
+    if (!isNaN(contadorVisitas)) {
+      const contadorString = contadorVisitas.toString().padStart(6, "0");
+      for (let i = 0; i < contadorString.length; i++) {
+        spans[i].innerText = contadorString[i];
+      }
+    } else {
+      for (let i = 0; i < spans.length; i++) {
+        spans[i].innerText = "0";
+      }
+    }
+  
+    incrementarContador();
+  });
+  
