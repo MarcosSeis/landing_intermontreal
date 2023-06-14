@@ -1,6 +1,6 @@
 import countapi from 'countapi-js';
 
-const NAMESPACE = 'https://intermontrealdemanejo.com/';
+const NAMESPACE = 'intermontrealdemanejo.com';
 const KEY = '3702d928-0abb-11ee-be56-0242ac120002';
 
 const counter = document.querySelectorAll('span');
