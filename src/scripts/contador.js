@@ -1,41 +1,36 @@
-import countapi from 'countapi-js';
-
-const NAMESPACE = 'intermontrealdemanejo.com';
-const KEY = '3702d928-0abb-11ee-be56-0242ac120002';
+const COUNT_URL = "https://api.countapi.xyz";
+const NAMESPACE = "https://intermontrealdemanejo.com/";
+const KEY = "3702d928-0abb-11ee-be56-0242ac120002";
 
 const counter = document.querySelectorAll('span');
 
-const getCount = async () => {
-  try {
-    const { value } = await countapi.get(NAMESPACE, KEY);
-    setValue(value);
-  } catch (error) {
-    console.log(error);
-  }
+const getCount = () => {
+  const script = document.createElement('script');
+  script.src = `${COUNT_URL}/get/${NAMESPACE}/${KEY}?callback=handleResponse`;
+  document.body.appendChild(script);
 };
 
-const incrementCount = async () => {
-  try {
-    const { value } = await countapi.hit(NAMESPACE, KEY);
-    setValue(value);
-  } catch (error) {
-    console.log(error);
-  }
+const incrementCount = () => {
+  const script = document.createElement('script');
+  script.src = `${COUNT_URL}/hit/${NAMESPACE}/${KEY}?callback=handleResponse`;
+  document.body.appendChild(script);
+};
+
+const handleResponse = (data) => {
+  setValue(data.value);
 };
 
 const setValue = (num) => {
-  const str = num.toString().padStart(6, '0');
+  var str = num.toString().padStart(6, "0");
   for (let index = 0; index < str.length; index++) {
-    counter[index].innerHTML = str[index];
+    const element = str[index];
+    counter[index].innerHTML = element;
   }
 };
 
-if (localStorage.getItem('hasVisited') === null) {
-  incrementCount()
-    .then(() => {
-      localStorage.setItem('hasVisited', 'true');
-    })
-    .catch((err) => console.log(err));
+if (localStorage.getItem("hasVisited") == null) {
+  incrementCount();
+  localStorage.setItem("hasVisited", "true");
 } else {
-  getCount().catch((err) => console.log(err));
+  getCount();
 }
