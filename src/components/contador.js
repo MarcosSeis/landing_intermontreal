@@ -1,35 +1,45 @@
-const COUNT_URL = "https://api.countapi.xyz";
-const NAMESPACE = "https://intermontrealdemanejo.com/";
-const KEY = "2985cc94-0a55-11ee-be56-0242ac120002";
+// Obtener la referencia al elemento span del contador
+const contador = document.querySelector('.counter');
 
-const counter = Array.from(document.querySelectorAll("span"));
+// Obtener la fecha actual
+const fechaActual = new Date();
 
-const getCount = async () => {
-  const response = await fetch(`${COUNT_URL}/get/${NAMESPACE}/${KEY}`);
-  const data = await response.json();
-  setValue(data.value);
-};
+// Establecer la fecha anterior (15 de junio de 2023)
+const fechaAnterior = new Date(2023, 5, 15); // El mes se indexa desde 0 (0 = enero)
 
-const incrementCount = async () => {
-  const response = await fetch(`${COUNT_URL}/hit/${NAMESPACE}/${KEY}`);
-  const data = await response.json();
-  setValue(data.value);
-};
+// Calcular la diferencia en horas entre la fecha actual y la fecha anterior
+const diferenciaHoras = Math.floor((fechaActual - fechaAnterior) / (1000 * 60 * 60));
 
-const setValue = (num) => {
-  var str = num.toString().padStart(6, "0");
-  for (let index = 0; index < str.length; index++) {
-    const element = str[index];
-    counter[index].innerHTML = element;
-  }
-};
-
-if (localStorage.getItem("hasVisited") == null) {
-  incrementCount()
-    .then(() => {
-      localStorage.setItem("hasVisited", "true");
-    })
-    .catch((err) => console.log(err));
-} else {
-  getCount().catch((err) => console.log(err));
+// Crear los elementos span para cada dígito del contador
+for (let i = 0; i < 6; i++) {
+  const span = document.createElement('span');
+  contador.appendChild(span);
 }
+
+// Función para actualizar el valor del contador
+function actualizarContador() {
+  const digitos = contador.querySelectorAll('span');
+
+  // Convertir la diferencia de horas a una cadena de 6 dígitos
+  const valorContador = diferenciaHoras.toString().padStart(6, '0');
+
+  // Actualizar cada dígito del contador con su respectivo valor
+  for (let i = 0; i < valorContador.length; i++) {
+    if (i === 3) {
+      continue; // Omitir el guion en la posición 3
+    }
+    digitos[i].textContent = valorContador[i];
+  }
+}
+
+// Ejecutar la función inicialmente
+actualizarContador();
+
+// Función para incrementar el contador cada hora
+function incrementarContador() {
+  diferenciaHoras++;
+  actualizarContador();
+}
+
+// Establecer un intervalo para llamar a la función cada hora
+setInterval(incrementarContador, 3600000); // 3600000 milisegundos = 1 hora
